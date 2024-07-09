@@ -10,9 +10,20 @@ const NavBar = () => {
     <div className="flex bg-slate-200 p-3 space-x-3">
       <Link href="/">Home</Link>
       <Link href="/users">Users</Link>
-      {status === 'authenticated' && <div>{session?.user?.name}</div>}
+      <Link href="/products">Products</Link>
+      {status === 'authenticated' && (
+        <div>
+          {session?.user?.name}
+          <Link href="/api/auth/signout" className="ml-3">
+            Sign out
+          </Link>
+        </div>
+      )}
       {status === 'unauthenticated' && (
-        <Link href="/api/auth/signin">Login</Link>
+        <>
+          <Link href="/api/auth/signin">Login</Link>
+          <Link href="/register">Register</Link>
+        </>
       )}
     </div>
   );

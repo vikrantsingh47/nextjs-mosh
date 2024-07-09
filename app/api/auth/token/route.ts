@@ -13,6 +13,6 @@ export async function GET(request: NextRequest) {
   const cookieStore = cookies();
   const token = cookieStore.get('authjs.session-token')?.value!;
   console.log(token);
-  const payload = jwt.verify(token, process.env.AUTH_SECRET);
+  const payload = jwt.verify(token, process.env.AUTH_SECRET!);
   return NextResponse.json(payload);
 }

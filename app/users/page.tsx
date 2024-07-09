@@ -1,6 +1,7 @@
 import React from 'react';
 import UserTable from './UserTable';
 import Link from 'next/link';
+import { Metadata } from 'next';
 
 interface props {
   searchParams: { sortOrder: string };
@@ -19,3 +20,12 @@ const UsersPage = ({ searchParams: { sortOrder } }: props) => {
 };
 
 export default UsersPage;
+
+export async function generateMetadata(): Promise<Metadata> {
+  // fetch dynamic data from database or url
+
+  return {
+    title: 'dynamic title',
+    description: 'dynamic description',
+  };
+}
